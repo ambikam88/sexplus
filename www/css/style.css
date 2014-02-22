@@ -1,0 +1,248 @@
+/* 
+* accent-a: rgb(234, 36, 48) 
+* accent-b: rgb(72, 174, 198) 
+*/
+
+@import url("reset.css");
+
+@import url("responsive.gs.12col.css");
+
+@font-face 
+{
+    font-family: "brandon-grotesqueblack";
+    font-style: normal;
+    font-weight: normal;
+    src: url("../fonts/brandon_blk-webfont.woff");
+}
+
+body 
+{
+    background: rgb(240, 240, 240);
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    padding-top: 64px;
+    padding-bottom: 96px;
+}
+
+main
+{
+    
+}
+
+h1, h2, h3, h4, h5, h6
+{
+    font-family: 'brandon-grotesqueblack', Futura, "Trebuchet MS", Arial, sans-serif;
+    font-size: 40px;
+    font-weight: 400;
+    left: 0px;
+    letter-spacing: 0.7px;
+    line-height: 52px;
+    text-transform: uppercase;
+}
+
+h1  { 
+    font-size: 2em; 
+}
+
+h1 { 
+    color: #fff;    
+    background: #000;
+    padding: 16px;
+    border: none;
+    border-radius: 8px;
+    text-align: center;
+}
+
+h1.accent-a {
+    background: rgb(234, 36, 48);
+}
+
+h1.accent-b {
+    background: rgb(72, 174, 198);
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+h2.accent-a {
+    color: rgb(234, 36, 48);
+}
+
+h2.accent-b {
+    color: rgb(72, 174, 198);
+}
+
+h3 { 
+    font-size: 1.17em; 
+}
+
+h3.accent-a {
+    color: rgb(234, 36, 48);
+}
+
+h3.accent-b {
+    color: rgb(72, 174, 198);
+}
+
+h5 { 
+    font-size: .83em; 
+}
+
+h6 { 
+    font-size: .75em; 
+}
+
+h1, h2, h3, h4, h5, h6, p, ul {
+    margin-bottom: 1em;
+}
+
+a {
+    color: rgb(234, 36, 48);
+}
+
+strong {
+    font-weight: 600;
+}
+
+span.accent-a {
+    color: rgb(234, 36, 48);
+    font-weight: 600;
+}
+
+span.accent-b {
+    color: rgb(72, 174, 198);
+    font-weight: 600;
+}
+
+.grouping { 
+    display: block;
+    background: #fff;
+    padding: 16px;
+    border: none;
+    border-radius: 8px;
+    margin-bottom: 2em;
+}
+
+.nav {
+    text-align: center;
+}
+
+#alert {
+    display: none;
+    position: fixed;
+    width: 256px;
+    min-height: 96px;
+    top: 32px;
+    right: 50%;
+    margin-right: -128px;
+    background: #fff;
+    padding: 16px;
+    border: 3px solid #000;
+    border-radius: 8px;
+}
+
+#introduction {
+    display: none;
+}
+
+#genders {
+    display: none;
+}
+
+#partnerAReady {
+    display: none;
+}
+
+#partnerAQuestions {
+    display: none;
+}
+
+#partnerBReady {
+    display: none;
+}
+
+#partnerBQuestions {
+    display: none;
+}
+
+#resultsReady {
+    display: none;
+}
+
+#results {
+    display: none;
+}
+
+#feedback {
+    display: none;
+}
+
+input[type=button], input[type="radio"] + label, input[type="checkbox"] + label, .button {
+    display: table-cell;
+    width: 112px;
+    height: 48px;
+    margin-right: 1em;
+    margin-bottom: 1em;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    font-family: 'brandon-grotesqueblack';
+    font-weight: 100;
+    font-size: 0.8em; 
+    letter-spacing: 0.7px;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+input, input + label, .button {
+    color: #fff;
+    background: #000;
+}
+
+input.accent-a, input + label.accent-a {
+    background: rgb(234, 36, 48);
+}
+
+input.accent-b, input + label.accent-b {
+    background: rgb(72, 174, 198);
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+input[type="checkbox"] + label {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+}
+
+input[type="checkbox"] + label span {
+    visibility: hidden;
+}
+
+input[type="checkbox"]:checked + label span {
+    visibility: visible;
+}
+
+input[type="radio"]:not(:checked) + label  {
+    color: #000;
+    background: #ddd;
+}
+
+input[type="radio"]  {
+    display: none;
+}
+
+.choices li {
+    display: inline-block;
+    margin-right: 1em;
+    margin-bottom: 1em;
+}
+
+.centered {
+    text-align: center;
+}

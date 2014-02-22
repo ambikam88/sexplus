@@ -1,0 +1,385 @@
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Sex+ BETA</title>
+        <link rel="stylesheet" media="all" type="text/css" href="css/style.css" />
+    </head>
+    <body>
+    
+        <div id="alert">
+            <section class="grouping">
+                <h2 class="alert-title">
+                    Oops
+                </h2>
+                <p class="alert-message">
+                    Some text about the error. 
+                </p>
+            </section>
+            <p class="nav">
+                <input type="button" name="dismiss" value="Got it" onclick="app.hideAlert()" />
+            </p>
+        </div>
+        
+        <div class="container">
+            
+            <main role="main" class="row gutters">
+                    
+                <p id="loading">
+                    Loading... 
+                </p>
+                
+                <section id="introduction">
+                    <h1>
+                        Sex+ BETA
+                    </h1>
+                    <section class="grouping">
+                        <h2>
+                            Hi there! 
+                        </h2>
+                        <p>
+                            You've reached <strong>Sex+</strong>, the sexual discovery app for couples. 
+                        </p>
+                        <p>
+                            Too often people are looking to be more adventurous in their sex lives but are afraid to ask in case their partner does not feel the same way. 
+                        </p>
+                        <p>
+                            <strong>This is where Sex+ comes in. </strong>
+                        </p>
+                    </section>
+                    <section class="grouping">
+                        <h2>
+                            How it Works
+                        </h2>
+                        <p>
+                            Take turns to answer a short survey about your sexual preferences. Simply state your level of interest in trying a sexual activity and <strong>Sex+</strong> will combine you responses into a lists of recommendations. 
+                        </p>
+                        <p>
+                            Some of the questions may seem quite... out there. <strong>That's OK!</strong> Just mark it as something you are not interested in and move on to the next question. 
+                        </p>
+                        <p>
+                            The results will show the <strong>lowest preference</strong> between you. For example, if <span class="accent-a">Partner A</span> would like to try some activity, but <span class="accent-b">Partner B</span> would not, then it will not appear in the results. 
+                        </p>
+                        <p>
+                            Of course, this only works if each partner gives honest responses. You should only continue if you trust each other to do so. 
+                        </p>
+                        <p>
+                            <strong>Above all, be safe and enjoy yourselves! ;-)</strong>
+                        </p>
+                    </section>
+                    <section class="grouping">
+                        <h2>
+                            Try It 
+                        </h2>
+                        <p>
+                            Press the buttons for <span class="accent-a">Partner A</span> and <span class="accent-b">Partner B</span> to see how responses combine. 
+                        </p>
+                        <form>
+                            <h3 class="accent-a">
+                                Partner A
+                            </h3>
+                            <ul class="choices">
+                                <li>
+                                    <input id="preference_a_test_0" name="test_a" value="0" type="radio" onclick="app.updateDemoResult();">
+                                    <label for="preference_a_test_0" class="accent-a">We already enjoy this</label>
+                                </li>
+                                <li>
+                                    <input id="preference_a_test_1" name="test_a" value="1" type="radio" onclick="app.updateDemoResult();">
+                                    <label for="preference_a_test_1" class="accent-a">I don't think it's for me</label>
+                                </li>
+                                <li>
+                                    <input id="preference_a_test_2" name="test_a" value="2" type="radio" onclick="app.updateDemoResult();">
+                                    <label for="preference_a_test_2" class="accent-a">Let's discuss the idea</label>
+                                </li>
+                                <li>
+                                    <input id="preference_a_test_3" name="test_a" value="3" type="radio" onclick="app.updateDemoResult();">
+                                    <label for="preference_a_test_3" class="accent-a">I'd like to role-play it</label>
+                                </li>
+                                <li>
+                                    <input id="preference_a_test_4" name="test_a" value="4" type="radio" onclick="app.updateDemoResult();">
+                                    <label for="preference_a_test_4" class="accent-a">I would like to try it</label>
+                                </li>
+                            </ul>
+                            <p>
+                                <strong>+</strong>
+                            </p>
+                            <h3 class="accent-b">
+                                Partner B
+                            </h3>
+                            <ul class="choices">
+                                <li>
+                                    <input id="preference_b_test_0" name="test_b" value="0" type="radio" onclick="app.updateDemoResult();">
+                                    <label for="preference_b_test_0" class="accent-b">We already enjoy this</label>
+                                </li>
+                                <li>
+                                    <input id="preference_b_test_1" name="test_b" value="1" type="radio" onclick="app.updateDemoResult();">
+                                    <label for="preference_b_test_1" class="accent-b">I don't think it's for me</label>
+                                </li>
+                                <li>
+                                    <input id="preference_b_test_2" name="test_b" value="2" type="radio" onclick="app.updateDemoResult();">
+                                    <label for="preference_b_test_2" class="accent-b">Let's discuss the idea</label>
+                                </li>
+                                <li>
+                                    <input id="preference_b_test_3" name="test_b" value="3" type="radio" onclick="app.updateDemoResult();">
+                                    <label for="preference_b_test_3" class="accent-b">I'd like to role-play it</label>
+                                </li>
+                                <li>
+                                    <input id="preference_b_test_4" name="test_b" value="4" type="radio" onclick="app.updateDemoResult();">
+                                    <label for="preference_b_test_4" class="accent-b">I would like to try it</label>
+                                </li>
+                            </ul>
+                            <p>
+                                <strong>=</strong>
+                            </p>
+                            <p>
+                                <span class="button demo">???</span>
+                            </p>
+                        </form>
+                    </section>
+                    <section class="grouping">
+                        <h2>
+                            Privacy 
+                        </h2>
+                        <p>
+                            <strong>Sex+</strong> runs entirely in your own browser. None of your responses or personal data are sent out to the internet. 
+                        </p>
+                        <p>
+                            If you are technically inclined, you can check the <a href="https://github.com/sexplus/sexplus" target="_blank">source code</a> yourself for added peace-of-mind. 
+                        </p>
+                    </section>
+                    <form>
+                        <section class="grouping">
+                            <h2 class="accent-a">
+                                Partner A
+                            </h2>
+                            <p>
+                                I agree to answer all questions honestly. <input id="partnerAAgreement" type="checkbox" />
+                                <label for="partnerAAgreement" class="accent-a"><span>&#10004;</span></label>
+                            </p>
+                        </section>
+                        <section class="grouping">
+                            <h2 class="accent-b">
+                                Partner B
+                            </h2>
+                            <p>
+                                I agree to answer all questions honestly. <input id="partnerBAgreement" type="checkbox" />
+                                <label for="partnerBAgreement" class="accent-b"><span>&#10004;</span></label>
+                            </p>
+                        </section>
+                        <p class="nav">
+                            <input type="button" name="next" value="Next" onclick="app.introductionNext()" />
+                        </p>
+                    </form>
+                </section>
+                
+                <section id="genders">
+                    <h1>
+                        Genders
+                    </h1>
+                    <form>
+                        <section class="grouping">
+                            <h2 class="accent-a">
+                                Partner A
+                            </h2>
+                            <ul class="choices">
+                                <li>
+                                    <input type="radio" id="partnerAGenderMale" name="partnerAGender" value="Male" checked> 
+                                    <label for="partnerAGenderMale" class="accent-a">Male</label>
+                                </li>
+                                <li>
+                                    <input type="radio" id="partnerAGenderFemale" name="partnerAGender" value="Female">
+                                    <label for="partnerAGenderFemale" class="accent-a">Female</label>
+                                </li>
+                            </ul>
+                        </section>
+                        <section class="grouping">
+                            <h2 class="accent-b">
+                                Partner B
+                            </h2>
+                            <ul class="choices">
+                                <li>
+                                    <input type="radio" id="partnerBGenderMale" name="partnerBGender" value="Male"> 
+                                    <label for="partnerBGenderMale" class="accent-b">Male</label>
+                                </li>
+                                <li>
+                                    <input type="radio" id="partnerBGenderFemale" name="partnerBGender" value="Female" checked>
+                                    <label for="partnerBGenderFemale" class="accent-b">Female</label>
+                                </li>
+                            </ul>
+                        </section>
+                        <p class="nav">
+                            <input type="button" name="next" value="Next" onclick="app.gendersNext()" />
+                        </p>
+                    </form>
+                </section>
+                
+                <section id="partnerAReady">
+                    <h1 class="accent-a">
+                        Partner A
+                    </h1>
+                    <section class="grouping">
+                        <h2>
+                            Hold Up!
+                        </h2>
+                        <p>
+                            This next section is for Partner A's eyes only... 
+                        </p>
+                    </section>
+                    <form>
+                        <p class="nav">
+                            <input type="button" class="accent-a" name="next" value="Next" onclick="app.partnerAReadyNext()" />
+                        </p>
+                    </form>
+                </section>
+                
+                <section id="partnerAQuestions">
+                    <h1 class="accent-a">
+                        Partner A
+                    </h1>
+                    <form>
+                        <ul>
+                            
+                        </ul>
+                        <p class="nav">
+                            <input type="button" class="accent-a" name="next" value="Next" onclick="app.partnerANext()" />
+                        </p>
+                    </form>
+                </section>
+                
+                <section id="partnerBReady">
+                    <h1 class="accent-b">
+                        Partner B
+                    </h1>
+                    <section class="grouping">
+                        <h2>
+                            Wait!
+                        </h2>
+                        <p>
+                            This next section is for Partner B only... 
+                        </p>
+                    </section>
+                    <form>
+                        <p class="nav">
+                            <input id="partnerBReadyNext" type="button" class="accent-b" name="next" value="Next" onclick="app.partnerBReadyNext()" />
+                        </p>
+                    </form>
+                </section>
+                
+                <section id="partnerBQuestions">
+                    <h1 class="accent-b">
+                        Partner B
+                    </h1>
+                    <form>
+                        <ul>
+                            
+                        </ul>
+                        <p class="nav">
+                            <input type="button" class="accent-b" name="next" value="Next" onclick="app.partnerBNext()" />
+                        </p>
+                    </form>
+                </section>
+                
+                <section id="resultsReady">
+                    <h1>
+                        Complete! 
+                    </h1>
+                    <section class="grouping">
+                        <h2>
+                            Get Ready...
+                        </h2>
+                        <p>
+                            Your answers have been analyzed and the results are ready. Excited?
+                        </p>
+                    </section>
+                    <form>
+                        <p class="nav">
+                            <input type="button" name="next" value="Next" onclick="app.resultsReadyNext()" />
+                        </p>
+                    </form>
+                </section>
+                
+                <section id="results">
+                    <h1>
+                        Results
+                    </h1>
+                    <section class="grouping">
+                        <h2>
+                            Things to discuss... 
+                        </h2>
+                        <div id="discuss">
+                            
+                        </div>
+                    </section>
+                    <section class="grouping">
+                        <h2>
+                            Things to role-play... 
+                        </h2>
+                        <div id="roleplay">
+                            
+                        </div>
+                    </section>
+                    <section class="grouping">
+                        <h2>
+                            Things to try... 
+                        </h2>
+                        <div id="try">
+                            
+                        </div>
+                    </section>
+                    <form>
+                        <p class="nav">
+                            <input type="button" name="save" value="Save" onclick="app.save()" />
+                            <input type="button" name="next" value="Next" onclick="app.resultsNext()" />
+                        </p>
+                    </form>
+                </section>
+                
+                <section id="feedback">
+                    <h1>
+                        Thank You
+                    </h1>
+                    <section class="grouping">
+                        <h2>
+                            Feedback
+                        </h2>
+                        <p>
+                            Thank you for try the <strong>Sex+ BETA</strong>. I hope you found out something new and exciting!
+                        </p>
+                        <p>
+                            Please consider taking our <a href="https://www.surveymonkey.com/s/9KDC8FH" target="_blank">feedback survey</a> so that we can make things even better. 
+                        </p>
+                        <p>
+                            It only takes a second!
+                        </p>
+                    </section>
+                    <section class="grouping">
+                        <h2>
+                            Fork Me
+                        </h2>
+                        <p>
+                            Why not make your own changes by forking <a href="https://github.com/sexplus/sexplus" target="_blank">our GitHub repository</a>?
+                        </p>
+                    </section>
+                    <form>
+                        <p class="nav">
+                            <input type="button" name="previous" value="Previous" onclick="app.feedbackPrevious()" />
+				            <span><a class="button" href="https://www.surveymonkey.com/s/9KDC8FH" target="_blank">Feedback</a></span>
+                        </p>
+                    </form>
+                </section>
+            
+            </main>
+
+        </div>
+
+
+        
+        <!-- Imports -->
+        
+        <script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
+        <script type="text/javascript" src="js/filesaver.js"></script>
+        <script type="text/javascript" src="js/application.js"></script>
+        
+        <!-- End of Imports -->
+        
+    </body>
+</html>
