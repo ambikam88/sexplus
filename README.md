@@ -1,5 +1,4 @@
-Sex+
-=======
+# Sex+
 
 Sex+ is a sexual discovery app for couples.
 
@@ -9,4 +8,15 @@ This is where Sex+ comes in.
 
 Take turns to answer a short survey about your sexual preferences. Simply state your level of interest in trying a sexual activity and Sex+ will combine you responses into a lists of recommendations. 
 
+
+## Status
+
 This project is currently in BETA. 
+
+
+## Acknowledgements
+
+Sex+ would not be possible without: 
+* <http://responsive.gs/>
+* <https://github.com/eligrey/FileSaver.js/>
+* <http://jquery.com/>
