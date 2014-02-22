@@ -60,16 +60,18 @@ function Application() {
             
             $("#loading").hide();
             $("#introduction").show(); 
+
+            this.updateDemoResult();
         };
                 
         var errorHandler = function() {
             
-            alert("The application data could not be loaded. ");
+            $("#loading").text("The application data could not be loaded. ");
         };
         
         $.ajax({type: "GET", url: "xml/activities.xml", dataType: "xml", success: successHandler, error: errorHandler});
-        
-        this.updateDemoResult();
+
+        //successHandler('<?xml version="1.0" encoding="UTF-8"?><activities>    <activity>        <mf>true</mf>        <mm>true</mm>        <ff>true</ff>        <description>Test activity A. </description>    </activity>    <activity>       <mf>false</mf>       <mm>false</mm>        <ff>true</ff>        <description>Test activity B. </description>    </activity>    <activity>        <mf>true</mf>        <mm>true</mm>        <ff>false</ff>        <description>Test activity C. </description>    </activity></activities>');
     }
     
     this.updateDemoResult = function() {
