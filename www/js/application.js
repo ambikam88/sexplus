@@ -78,7 +78,7 @@ function Application() {
         var partnerAChoice = $("input[name='test_a']:checked", "#introduction");
         var partnerBChoice = $("input[name='test_b']:checked", "#introduction");
         
-        var demoResult = $("span.demo", "#introduction");
+        var demoResult = $("#demo", "#introduction");
         
         if ((partnerAChoice.val()) && (partnerBChoice.val()))
         {
@@ -358,15 +358,15 @@ function Application() {
 
     mergePreferences = function(preferenceA, preferenceB) {
         
-        if ((preferenceA == 0) || (preferenceB == 0)) {
+        if ((preferenceA == PREFERENCE_CONTINUE) || (preferenceB == PREFERENCE_CONTINUE)) {
             
             return false;
         }
-        else if ((preferenceA == 1) || (preferenceB == 1)) {
+        else if ((preferenceA == PREFERENCE_NO) || (preferenceB == PREFERENCE_NO)) {
             
             return false;
         }
-        else if ((preferenceA == 3) || (preferenceB == 3)) {
+        else if ((preferenceA == PREFERENCE_TRY) || (preferenceB == PREFERENCE_TRY)) {
             
             return true;
         }

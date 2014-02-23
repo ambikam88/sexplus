@@ -230,12 +230,15 @@ input[type="checkbox"] {
 
 input[type="checkbox"] + label {
     display: inline-block;
-    width: 32px;
-    height: 32px;
+    width: 64px;
+    height: 64px;
 }
 
 input[type="checkbox"] + label span {
     visibility: hidden;
+    line-height: 48px;
+    font-size: 2em;
+    vertical-align: middle;
 }
 
 input[type="checkbox"]:checked + label span {
@@ -249,6 +252,10 @@ input[type="radio"]:not(:checked) + label  {
 
 input[type="radio"]  {
     display: none;
+}
+
+.choices {
+    text-align: center;
 }
 
 .choices li {

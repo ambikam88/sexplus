@@ -93,9 +93,6 @@
                                     <label for="preference_a_test_3" class="accent-a">I would like to try it</label>
                                 </li>
                             </ul>
-                            <p>
-                                <strong>+</strong>
-                            </p>
                             <h3 class="accent-b">
                                 Partner B
                             </h3>
@@ -117,12 +114,14 @@
                                     <label for="preference_b_test_3" class="accent-b">I would like to try it</label>
                                 </li>
                             </ul>
-                            <p>
-                                <strong>=</strong>
-                            </p>
-                            <p>
-                                <span class="button demo">???</span>
-                            </p>
+                            <h3>
+                                Result
+                            </h3>
+                            <ul class="choices">
+                                <li>
+                                    <span id="demo" class="button">?</span>
+                                </li>
+                            </ul>
                         </form>
                     </section>
                     <section class="grouping">
@@ -142,7 +141,10 @@
                                 Partner A
                             </h2>
                             <p>
-                                I agree to answer all questions honestly. <input id="partnerAAgreement" type="checkbox" />
+                                I agree to answer all questions honestly. 
+                            </p>
+                            <p>
+                                <input id="partnerAAgreement" type="checkbox" />
                                 <label for="partnerAAgreement" class="accent-a"><span>&#10004;</span></label>
                             </p>
                         </section>
@@ -151,13 +153,18 @@
                                 Partner B
                             </h2>
                             <p>
-                                I agree to answer all questions honestly. <input id="partnerBAgreement" type="checkbox" />
+                                I agree to answer all questions honestly. 
+                            </p>
+                            <p>
+                                <input id="partnerBAgreement" type="checkbox" />
                                 <label for="partnerBAgreement" class="accent-b"><span>&#10004;</span></label>
                             </p>
                         </section>
-                        <p class="nav">
-                            <input type="button" name="next" value="Next" onclick="app.introductionNext()" />
-                        </p>
+                        <ul class="choices">
+                            <li>
+                                <input type="button" name="next" value="Next" onclick="app.introductionNext()" />
+                            </li>
+                        </ul>
                     </form>
                 </section>
                 
@@ -196,9 +203,11 @@
                                 </li>
                             </ul>
                         </section>
-                        <p class="nav">
-                            <input type="button" name="next" value="Next" onclick="app.gendersNext()" />
-                        </p>
+                        <ul class="choices">
+                            <li>
+                                <input type="button" name="next" value="Next" onclick="app.gendersNext()" />
+                            </li>
+                        </ul>
                     </form>
                 </section>
                 
@@ -215,9 +224,11 @@
                         </p>
                     </section>
                     <form>
-                        <p class="nav">
-                            <input type="button" class="accent-a" name="next" value="Next" onclick="app.partnerAReadyNext()" />
-                        </p>
+                        <ul class="choices">
+                            <li>
+                                <input type="button" class="accent-a" name="next" value="Next" onclick="app.partnerAReadyNext()" />
+                            </li>
+                        </ul>
                     </form>
                 </section>
                 
@@ -229,9 +240,11 @@
                         <ul>
                             
                         </ul>
-                        <p class="nav">
-                            <input type="button" class="accent-a" name="next" value="Next" onclick="app.partnerANext()" />
-                        </p>
+                        <ul class="choices">
+                            <li>
+                                <input type="button" class="accent-a" name="next" value="Next" onclick="app.partnerANext()" />
+                            </li>
+                        </ul>
                     </form>
                 </section>
                 
@@ -248,9 +261,11 @@
                         </p>
                     </section>
                     <form>
-                        <p class="nav">
-                            <input id="partnerBReadyNext" type="button" class="accent-b" name="next" value="Next" onclick="app.partnerBReadyNext()" />
-                        </p>
+                        <ul class="choices">
+                            <li>
+                                <input type="button" class="accent-b" name="next" value="Next" onclick="app.partnerBNext()" />
+                            </li>
+                        </ul>
                     </form>
                 </section>
                 
@@ -262,9 +277,11 @@
                         <ul>
                             
                         </ul>
-                        <p class="nav">
-                            <input type="button" class="accent-b" name="next" value="Next" onclick="app.partnerBNext()" />
-                        </p>
+                        <ul class="choices">
+                            <li>
+                                <input type="button" class="accent-b" name="next" value="Next" onclick="app.partnerBNext()" />
+                            </li>
+                        </ul>
                     </form>
                 </section>
                 
@@ -281,9 +298,11 @@
                         </p>
                     </section>
                     <form>
-                        <p class="nav">
-                            <input type="button" name="next" value="Next" onclick="app.resultsReadyNext()" />
-                        </p>
+                        <ul class="choices">
+                            <li>
+                                <input type="button" name="next" value="Next" onclick="app.resultsReadyNext()" />
+                            </li>
+                        </ul>
                     </form>
                 </section>
                 
@@ -300,10 +319,14 @@
                         </p>
                     </section>
                     <form>
-                        <p class="nav">
-                            <span><input type="button" name="save" value="Save" onclick="app.save()" /></span>
-                            <span><input type="button" name="next" value="Next" onclick="app.resultsNext()" /></span>
-                        </p>
+                        <ul class="choices">
+                            <li>
+                                <input type="button" name="save" value="Save" onclick="app.save()" />
+                            </li>
+                            <li>
+                                <input type="button" name="next" value="Next" onclick="app.resultsNext()" />
+                            </li>
+                        </ul>
                     </form>
                 </section>
                 
@@ -331,9 +354,14 @@
                         </p>
                     </section>
                     <form>
-                        <p class="nav">
+                        <ul class="choices">
+                            <li>
                             <input type="button" name="previous" value="Previous" onclick="app.feedbackPrevious()" />
-                        </p>
+                            </li>
+                            <li>
+                                <a class="button" href="https://github.com/sexplus/sexplus" target="_blank">Feedback</a>
+                            </li>
+                        </ul>
                     </form>
                 </section>
             
