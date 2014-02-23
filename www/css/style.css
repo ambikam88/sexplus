@@ -207,15 +207,21 @@ input[type=button], input[type=button] + label, input[type="radio"] + label, inp
 }
 
 input, input + label, .button {
-    color: #fff;
-    background: #000;
+    color: #000;
+    background: #ddd;
 }
 
-input.accent-a, input + label.accent-a {
+input:hover, input:hover + label, .button:hover {
+    background: #999;
+}
+
+input.accent-a, input + label.accent-a, input:hover.accent-a, input:hover + label.accent-a, input[type="radio"]:checked:hover + label.accent-a {
+    color: #fff;
     background: rgb(234, 36, 48);
 }
 
-input.accent-b, input + label.accent-b {
+input.accent-b, input + label.accent-b, input:hover.accent-b, input:hover + label.accent-b, input[type="radio"]:checked:hover + label.accent-b {
+    color: #fff;
     background: rgb(72, 174, 198);
 }
 
@@ -233,7 +239,7 @@ input[type="checkbox"] + label span {
     line-height: 2em;
     font-size: 2em;
     vertical-align: middle;
-    color: #999;
+    color: #333;
 }
 
 input[type="checkbox"]:checked + label span {
@@ -255,6 +261,10 @@ input[type="radio"]:not(:checked) + label  {
 
 input[type="radio"]  {
     display: none;
+}
+
+input[type="radio"]:hover + label {
+    background: #999;
 }
 
 .choices {
