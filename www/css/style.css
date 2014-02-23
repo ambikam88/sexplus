@@ -193,8 +193,8 @@ a input[type=button] {
 
 input[type=button], input[type="radio"] + label, input[type="checkbox"] + label, .button {
     display: table-cell;
-    width: 160px;
-    height: 88px;
+    width: 12em;
+    height: 8em;
     margin-right: 1em;
     margin-bottom: 1em;
     padding: 8px;
@@ -230,13 +230,13 @@ input[type="checkbox"] {
 
 input[type="checkbox"] + label {
     display: inline-block;
-    width: 64px;
-    height: 64px;
+    width: 4em;
+    height: 4em;
 }
 
 input[type="checkbox"] + label span {
     visibility: hidden;
-    line-height: 48px;
+    line-height: 1.4em;
     font-size: 2em;
     vertical-align: middle;
 }
