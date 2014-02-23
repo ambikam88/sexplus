@@ -9,25 +9,24 @@ $(document).ready(function() {
 
 function Application() {
     
+    var PREFERENCE_CONTINUE = 0;
+    var PREFERENCE_NO = 1;
+    var PREFERENCE_OPEN = 2;
+    var PREFERENCE_TRY = 3;
+    
     var activities = new Array();
     
     var partnerAM;
     var partnerBM;
+
+    var preferenceLabels = {};
     
-    var preferenceContinue = new Preference("We already enjoy this", 0);
-    var preferenceNotForMe = new Preference("I don't think it's for me", 1);
-    var preferenceDiscuss = new Preference("Let's discuss the idea", 2);
-    var preferenceRolePlay = new Preference("I'd like to role-play it", 3);
-    var preferenceTry = new Preference("I would like to try it", 4);
+    preferenceLabels[PREFERENCE_CONTINUE] = "We already enjoy this";
+    preferenceLabels[PREFERENCE_NO] = "I don't think it's for me";
+    preferenceLabels[PREFERENCE_OPEN] = "If my partner is interested";
+    preferenceLabels[PREFERENCE_TRY] = "I would like to try it";
     
-    var preferences = [
-        preferenceContinue, 
-        preferenceNotForMe, 
-        preferenceDiscuss, 
-        preferenceRolePlay, 
-        preferenceTry];
-        
-    var results;
+    var results = {};
     
     this.showAlert = function(title, message) {
         
@@ -59,15 +58,15 @@ function Application() {
             activities.push(activity);});
             
             $("#loading").hide();
-            $("#introduction").show(); 
-
-            this.updateDemoResult();
+            $("#introduction").show();
         };
                 
         var errorHandler = function() {
             
             $("#loading").text("The application data could not be loaded. ");
         };
+
+        this.updateDemoResult();
         
         $.ajax({type: "GET", url: "xml/activities.xml", dataType: "xml", success: successHandler, error: errorHandler});
 
@@ -83,17 +82,23 @@ function Application() {
         
         if ((partnerAChoice.val()) && (partnerBChoice.val()))
         {
-        
-            var preferenceA = preferences[partnerAChoice.val()];
-            var preferenceB = preferences[partnerBChoice.val()];
+            var preferenceA = partnerAChoice.val();
+            var preferenceB = partnerBChoice.val();
             
-            var merged = preferenceA.merge(preferenceB);
+            var merged = mergePreferences(preferenceA, preferenceB);
             
-            demoResult.text(merged.getLabel());
+            if (merged) { 
+                
+                demoResult.text("Recommended");
+            }
+            else {
+                
+                demoResult.text("Hidden");
+            }
         }
         else {
             
-            demoResult.text("???");
+            demoResult.text("?");
         }
     }
     
@@ -227,25 +232,20 @@ function Application() {
     
     this.save = function() {
         
-        resultsString = "# Results\r\n";
-        
-        for (var i = 0; i < preferences.length; i++) {
+        resultsString = "# Results\r\n\n";
+
+        if (results.length > 0) {
             
-            resultsString += "\r\n## " + preferences[i].getLabel() + "\r\n";
+            for (var i in results) {
+                
+                var activity = activities[i];
+                
+                resultsString += "* " + activity.getDescription() + "\r\n";
+            }
+        }
+        else {
             
-            if (results[i].length > 0) {
-                
-                for (var j = 0; j < results[i].length; j++) {
-                    
-                    var activity = activities[results[i][j]];
-                    
-                    resultsString += "* " + activity.getDescription() + "\r\n";
-                }
-            }
-            else {
-                
-                resultsString += "None\r\n";
-            }
+            resultsString += "None\r\n";
         }
         
         var blob = new Blob([resultsString], {type: "text/plain;charset=utf-8"});
@@ -268,13 +268,13 @@ function Application() {
                 
                 html += "<ul class='choices'>";
                 
-                for (var j = 0; j < preferences.length; j++) {
+                for (var j in preferenceLabels) {
                     
-                    var pref = preferences[j];
+                    var pref = preferenceLabels[j];
                     
                     var id = "preference_" + partner + "_" + i + "_" + j;
                     
-                    html += "<li><input type='radio' id='" + id + "' name='activity_" + i + "' value='" + j + "' /><label for='" + id + "' class='accent-" + partner + "'>" + pref.getLabel() + "</label></li>";
+                    html += "<li><input type='radio' id='" + id + "' name='activity_" + i + "' value='" + j + "' /><label for='" + id + "' class='accent-" + partner + "'>" + pref + "</label></li>";
                 }
                 
                 html += "</ul>";
@@ -290,11 +290,6 @@ function Application() {
         
         results = new Array();
         
-        for (var i = 0; i < preferences.length; i++) {
-            
-            results.push(new Array());
-        }
-        
         for (var i = 0; i < activities.length; i++) {
             
             var activity = activities[i];
@@ -304,12 +299,12 @@ function Application() {
                 var choiceA = $("input[name='activity_" + i + "']:checked", "#partnerAQuestions form").val();
                 var choiceB = $("input[name='activity_" + i + "']:checked", "#partnerBQuestions form").val();
                 
-                var preferenceA = preferences[choiceA];
-                var preferenceB = preferences[choiceB];
+                var merged = mergePreferences(choiceA, choiceB);
                 
-                var merged = preferenceA.merge(preferenceB);
-                
-                results[merged.getScore()] += i;
+                if (merged) {
+                    
+                    results += i;
+                }
             }
         }
     }
@@ -318,22 +313,22 @@ function Application() {
         
         var html = "";
         
-        if (results[preferenceIndex].length > 0) {
+        if (results.length > 0) {
             
             html += "<ul>";
             
-            for (var i = 0; i < results[preferenceIndex].length; i++) {
+            for (var i in results) {
                 
-                var activity = activities[results[preferenceIndex][i]];
+                var activity = activities[i];
                 
-                html += "<li>" + activity.getDescription() + "</li>";
+                html += "<li><h3>" + '"' + activity.getDescription() + '"' + "</h3></li>";
             }
             
             html += "</ul>";
         }
         else {
             
-            html += "<p>None</p>";
+            html += "<p>Sorry, no recommendations could be made. </p>";
         }
         
         root.append(html);
@@ -359,6 +354,26 @@ function Application() {
         });	
         
         return (count == 0) ? true : false;
+    }
+
+    mergePreferences = function(preferenceA, preferenceB) {
+        
+        if ((preferenceA == 0) || (preferenceB == 0)) {
+            
+            return false;
+        }
+        else if ((preferenceA == 1) || (preferenceB == 1)) {
+            
+            return false;
+        }
+        else if ((preferenceA == 3) || (preferenceB == 3)) {
+            
+            return true;
+        }
+        else {
+            
+            return false;
+        }
     }
 }
 
@@ -398,34 +413,6 @@ function Activity(description, mm, mf, ff) {
             {
                 return this.ff;
             }
-        }
-    }
-}
-
-function Preference(label, score)
-{
-    this.label = label;
-    this.score = score;
-    
-    this.getLabel = function() {
-        
-        return this.label;
-    }
-    
-    this.getScore = function() {
-        
-        return this.score;
-    }
-    
-    this.merge = function(other) {
-        
-        if (other.getScore() < score) {
-            
-            return other;
-        }
-        else {
-            
-            return this;
         }
     }
 }

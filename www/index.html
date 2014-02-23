@@ -52,13 +52,10 @@
                             How it Works
                         </h2>
                         <p>
-                            Take turns to answer a short survey about your sexual preferences. Simply state your level of interest in trying a sexual activity and <strong>Sex+</strong> will combine you responses into a lists of recommendations. 
+                            Take turns to answer a short survey about your sexual preferences. Simply state your level of interest in a sexual activity and <strong>Sex+</strong> will combine you responses into a lists of recommendations. 
                         </p>
                         <p>
-                            Some of the questions may seem quite... out there. <strong>That's OK!</strong> Just mark it as something you are not interested in and move on to the next question. 
-                        </p>
-                        <p>
-                            The results will show the <strong>lowest preference</strong> between you. For example, if <span class="accent-a">Partner A</span> would like to try some activity, but <span class="accent-b">Partner B</span> would not, then it will not appear in the results. 
+                            Activities are only recommended when you <strong>both</strong> give a positive response. This means that only your shared fantasies will be shown. 
                         </p>
                         <p>
                             Of course, this only works if each partner gives honest responses. You should only continue if you trust each other to do so. 
@@ -89,15 +86,11 @@
                                 </li>
                                 <li>
                                     <input id="preference_a_test_2" name="test_a" value="2" type="radio" onclick="app.updateDemoResult();">
-                                    <label for="preference_a_test_2" class="accent-a">Let's discuss the idea</label>
+                                    <label for="preference_a_test_2" class="accent-a">If my partner is interested</label>
                                 </li>
                                 <li>
                                     <input id="preference_a_test_3" name="test_a" value="3" type="radio" onclick="app.updateDemoResult();">
-                                    <label for="preference_a_test_3" class="accent-a">I'd like to role-play it</label>
-                                </li>
-                                <li>
-                                    <input id="preference_a_test_4" name="test_a" value="4" type="radio" onclick="app.updateDemoResult();">
-                                    <label for="preference_a_test_4" class="accent-a">I would like to try it</label>
+                                    <label for="preference_a_test_3" class="accent-a">I would like to try it</label>
                                 </li>
                             </ul>
                             <p>
@@ -117,15 +110,11 @@
                                 </li>
                                 <li>
                                     <input id="preference_b_test_2" name="test_b" value="2" type="radio" onclick="app.updateDemoResult();">
-                                    <label for="preference_b_test_2" class="accent-b">Let's discuss the idea</label>
+                                    <label for="preference_b_test_2" class="accent-b">If my partner is interested</label>
                                 </li>
                                 <li>
                                     <input id="preference_b_test_3" name="test_b" value="3" type="radio" onclick="app.updateDemoResult();">
-                                    <label for="preference_b_test_3" class="accent-b">I'd like to role-play it</label>
-                                </li>
-                                <li>
-                                    <input id="preference_b_test_4" name="test_b" value="4" type="radio" onclick="app.updateDemoResult();">
-                                    <label for="preference_b_test_4" class="accent-b">I would like to try it</label>
+                                    <label for="preference_b_test_3" class="accent-b">I would like to try it</label>
                                 </li>
                             </ul>
                             <p>
@@ -302,29 +291,13 @@
                     <h1>
                         Results
                     </h1>
-                    <section class="grouping">
+                    <section id="try" class="grouping">
                         <h2>
-                            Things to discuss... 
+                            Recommendations
                         </h2>
-                        <div id="discuss">
-                            
-                        </div>
-                    </section>
-                    <section class="grouping">
-                        <h2>
-                            Things to role-play... 
-                        </h2>
-                        <div id="roleplay">
-                            
-                        </div>
-                    </section>
-                    <section class="grouping">
-                        <h2>
-                            Things to try... 
-                        </h2>
-                        <div id="try">
-                            
-                        </div>
+                        <p>
+                            Results shown are activities that you both displayed an interest in... 
+                        </p>
                     </section>
                     <form>
                         <p class="nav">
