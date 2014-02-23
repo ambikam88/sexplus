@@ -187,14 +187,14 @@ span.accent-b {
 
 input[type=button], input[type=button] + label, input[type="radio"] + label, input[type="checkbox"] + label, .button {
     display: table-cell;
-    width: 8em;
+    width: 10em;
     height: 4em;
     padding: 8px;
     border: none;
     border-radius: 4px;
     font-family: 'brandon-grotesqueblack';
     font-weight: 400;
-    font-size: 0.8em; 
+    font-size: 1em; 
     letter-spacing: 0.7px;
     text-align: center;
     text-transform: uppercase;

@@ -46,16 +46,17 @@ function Application() {
         var successHandler = function(data) {
             
             $(data).find("activity").each(function() {
-            
-            var i = $(this);
-            
-            var activity = new Activity(
-                i.find("description").html(), 
-                i.find("mm").text() == "true", 
-                i.find("mf").text() == "true", 
-                i.find("ff").text() == "true");
-            
-            activities.push(activity);});
+                
+                var i = $(this);
+                
+                var activity = new Activity(
+                    i.find("description").html(), 
+                    i.find("mm").text() == "true", 
+                    i.find("mf").text() == "true", 
+                    i.find("ff").text() == "true");
+
+                activities.push(activity);
+            });
             
             $("#loading").hide();
             $("#introduction").show();
@@ -71,8 +72,9 @@ function Application() {
         this.updateDemoResult();
         
         $.ajax({type: "GET", url: "xml/activities.xml", dataType: "xml", success: successHandler, error: errorHandler});
-
-        //successHandler('<?xml version="1.0" encoding="UTF-8"?><activities>    <activity>        <mf>true</mf>        <mm>true</mm>        <ff>true</ff>        <description>Test activity A. </description>    </activity>    <activity>       <mf>false</mf>       <mm>false</mm>        <ff>true</ff>        <description>Test activity B. </description>    </activity>    <activity>        <mf>true</mf>        <mm>true</mm>        <ff>false</ff>        <description>Test activity C. </description>    </activity></activities>');
+        
+        // Used for testing... 
+        //successHandler('<?xml version="1.0" encoding="UTF-8"?><activities>    <activity>        <mf>true</mf>        <mm>true</mm>        <ff>true</ff>        <description>Test activity A. </description>    </activity>    <activity>       <mf>false</mf>       <mm>false</mm>        <ff>true</ff>        <description>Test activity B. </description>    </activity>    <activity>        <mf>true</mf>        <mm>true</mm>        <ff>false</ff>        <description>Test activity C. </description>    </activity><activity>       <mf>false</mf>       <mm>false</mm>        <ff>true</ff>        <description>Test activity B. </description>    </activity>    <activity>        <mf>true</mf>        <mm>true</mm>        <ff>true</ff>        <description>Test activity D. </description>    </activity></activities>');
     }
     
     this.updateDemoResult = function() {
@@ -267,7 +269,7 @@ function Application() {
                     
                     var id = "preference_" + partner + "_" + i + "_" + j;
                     
-                    html += "<li><input type='radio' id='" + id + "' name='activity_" + i + "' value='" + j + "' /><label for='" + id + "' class='accent-" + partner + "'>" + pref + "</label></li>";
+                    html += "<li><input type='radio' id='" + id + "' name='activity_" + i + "' value='" + j + "'/><label for='" + id + "' class='accent-" + partner + "'>" + pref + "</label></li>";
                 }
                 
                 html += "</ul>";
@@ -296,7 +298,7 @@ function Application() {
                 
                 if (merged) {
                     
-                    results += i;
+                    results.push(i);
                 }
             }
         }
@@ -372,11 +374,11 @@ function Application() {
 
 function Activity(description, mm, mf, ff) {
     
-    this.description = description;
+    this.description = description || "Unknown";
     
-    this.mm = mm;
-    this.mf = mf;
-    this.ff = ff;
+    this.mm = mm || true;
+    this.mf = mf || true;
+    this.ff = ff || true;
     
     this.getDescription = function() {
         

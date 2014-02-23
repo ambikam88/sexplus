@@ -424,13 +424,37 @@
         <mf>true</mf>
         <mm>true</mm>
         <ff>true</ff>
+        <description><span class="accent-a">Partner A</span> has sex with a male partner while <span class="accent-b">Partner B</span> watches. </description>
+    </activity>
+    <activity>
+        <mf>true</mf>
+        <mm>true</mm>
+        <ff>true</ff>
+        <description><span class="accent-b">Partner B</span> has sex with a male partner while <span class="accent-a">Partner A</span> watches. </description>
+    </activity>
+    <activity>
+        <mf>true</mf>
+        <mm>true</mm>
+        <ff>true</ff>
+        <description><span class="accent-a">Partner A</span> has sex with a female partner while <span class="accent-b">Partner B</span> watches. </description>
+    </activity>
+    <activity>
+        <mf>true</mf>
+        <mm>true</mm>
+        <ff>true</ff>
+        <description><span class="accent-b">Partner B</span> has sex with a female partner while <span class="accent-a">Partner A</span> watches. </description>
+    </activity>
+    <activity>
+        <mf>true</mf>
+        <mm>true</mm>
+        <ff>true</ff>
         <description>Participating in a large orgy. </description>
     </activity>
     <activity>
         <mf>true</mf>
         <mm>true</mm>
         <ff>true</ff>
-        <description>Visiting a sex club, with no expectations. </description>
+        <description>Visiting a sex or swingers club, with no expectations. </description>
     </activity>
     <activity>
         <mf>true</mf>
@@ -472,6 +496,6 @@
         <mf>true</mf>
         <mm>true</mm>
         <ff>true</ff>
-        <description><span class="accent-b"><span class="accent-b">Partner B</span></span> gives <span class="accent-a">Partner A</span> a brown shower. </description>
+        <description><span class="accent-b">Partner B</span> gives <span class="accent-a">Partner A</span> a brown shower. </description>
     </activity>
 </activities>
