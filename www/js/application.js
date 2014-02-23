@@ -54,7 +54,7 @@ function Application() {
                     i.find("mm").text() == "true", 
                     i.find("mf").text() == "true", 
                     i.find("ff").text() == "true");
-
+                
                 activities.push(activity);
             });
             
@@ -74,7 +74,7 @@ function Application() {
         $.ajax({type: "GET", url: "xml/activities.xml", dataType: "xml", success: successHandler, error: errorHandler});
         
         // Used for testing... 
-        //successHandler('<?xml version="1.0" encoding="UTF-8"?><activities>    <activity>        <mf>true</mf>        <mm>true</mm>        <ff>true</ff>        <description>Test activity A. </description>    </activity>    <activity>       <mf>false</mf>       <mm>false</mm>        <ff>true</ff>        <description>Test activity B. </description>    </activity>    <activity>        <mf>true</mf>        <mm>true</mm>        <ff>false</ff>        <description>Test activity C. </description>    </activity><activity>       <mf>false</mf>       <mm>false</mm>        <ff>true</ff>        <description>Test activity B. </description>    </activity>    <activity>        <mf>true</mf>        <mm>true</mm>        <ff>true</ff>        <description>Test activity D. </description>    </activity></activities>');
+        //$.ajax({type: "GET", url: "xml/activities-test.xml", dataType: "xml", success: successHandler, error: errorHandler});
     }
     
     this.updateDemoResult = function() {
@@ -227,13 +227,13 @@ function Application() {
     
     this.save = function() {
         
-        resultsString = "# Results\r\n\n";
+        var resultsString = "# Results\r\n\n";
 
         if (results.length > 0) {
             
-            for (var i in results) {
+            for (var i = 0; i < results.length; i++) {
                 
-                var activity = activities[i];
+                var activity = activities[results[i]];
                 
                 resultsString += "* " + activity.getDescription() + "\r\n";
             }
@@ -251,7 +251,7 @@ function Application() {
     appendQuestions = function(root, partner) {
         
         var html = "";
-        
+               
         for (var i = 0; i < activities.length; i++) {
             
             var activity = activities[i];
@@ -287,19 +287,12 @@ function Application() {
         
         for (var i = 0; i < activities.length; i++) {
             
-            var activity = activities[i];
+            var choiceA = $("input[name='activity_" + i + "']:checked", "#partnerAQuestions form").val() || PREFERENCE_NO;
+            var choiceB = $("input[name='activity_" + i + "']:checked", "#partnerBQuestions form").val() || PREFERENCE_NO;
             
-            if (activity.isApplicable(partnerAM, partnerBM)) {
+            if (mergePreferences(choiceA, choiceB)) {
                 
-                var choiceA = $("input[name='activity_" + i + "']:checked", "#partnerAQuestions form").val();
-                var choiceB = $("input[name='activity_" + i + "']:checked", "#partnerBQuestions form").val();
-                
-                var merged = mergePreferences(choiceA, choiceB);
-                
-                if (merged) {
-                    
-                    results.push(i);
-                }
+                results.push(i);
             }
         }
     }
@@ -312,9 +305,9 @@ function Application() {
             
             html += "<ul>";
             
-            for (var i in results) {
+            for (var i = 0; i < results.length; i++) {
                 
-                var activity = activities[i];
+                var activity = activities[results[i]];
                 
                 html += "<li><h3>" + '"' + activity.getDescription() + '"' + "</h3></li>";
             }
@@ -351,19 +344,19 @@ function Application() {
         return (count == 0) ? true : false;
     }
 
-    mergePreferences = function(preferenceA, preferenceB) {
+    mergePreferences = function(a, b) {
         
-        if ((preferenceA == PREFERENCE_CONTINUE) || (preferenceB == PREFERENCE_CONTINUE)) {
+        if ((a == PREFERENCE_CONTINUE) || (a == PREFERENCE_OPEN)) {
+            
+            return (b == PREFERENCE_TRY);
+        }
+        else if (a == PREFERENCE_NO) {
             
             return false;
         }
-        else if ((preferenceA == PREFERENCE_NO) || (preferenceB == PREFERENCE_NO)) {
+        else if (a == PREFERENCE_TRY) {
             
-            return false;
-        }
-        else if ((preferenceA == PREFERENCE_TRY) || (preferenceB == PREFERENCE_TRY)) {
-            
-            return true;
+            return ((b == PREFERENCE_CONTINUE) || (b == PREFERENCE_OPEN) || (b == PREFERENCE_TRY));
         }
         else {
             
@@ -374,22 +367,22 @@ function Application() {
 
 function Activity(description, mm, mf, ff) {
     
-    this.description = description || "Unknown";
+    this.description = description;
     
-    this.mm = mm || true;
-    this.mf = mf || true;
-    this.ff = ff || true;
+    this.mm = mm;
+    this.mf = mf;
+    this.ff = ff;
     
     this.getDescription = function() {
         
         return this.description;
     }
     
-    this.isApplicable = function(partnerAM, partnerBM) {
+    this.isApplicable = function(a, b) {
         
-        if (partnerAM === true)
+        if (a == true)
         {
-            if (partnerBM === true)
+            if (b == true)
             {
                 return this.mm;
             }
@@ -400,7 +393,7 @@ function Activity(description, mm, mf, ff) {
         }
         else
         {
-            if (partnerBM === true)
+            if (b == true)
             {
                 return this.mf;
             }

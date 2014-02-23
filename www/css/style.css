@@ -1,6 +1,8 @@
 /* 
 * accent-a: rgb(234, 36, 48) 
+* accent-a dull: rgb(204, 6, 18) 
 * accent-b: rgb(72, 174, 198) 
+* accent-b dull: rgb(42, 144, 168) 
 */
 
 @import url("reset.css");
@@ -199,7 +201,7 @@ input[type=button], input[type=button] + label, input[type="radio"] + label, inp
     text-align: center;
     text-transform: uppercase;
     text-decoration: none;
-    line-height: 1em;
+    line-height: 1.4em;
     vertical-align: middle;
     cursor: pointer;
 }
@@ -228,14 +230,22 @@ input[type="checkbox"] + label {
 }
 
 input[type="checkbox"] + label span {
-    visibility: hidden;
     line-height: 2em;
     font-size: 2em;
     vertical-align: middle;
+    color: #999;
 }
 
 input[type="checkbox"]:checked + label span {
-    visibility: visible;
+    color: #fff;
+}
+
+input[type="checkbox"]:not(:checked) + label.accent-a span {
+    color: rgb(204, 6, 18);
+}
+
+input[type="checkbox"]:not(:checked) + label.accent-b span {
+    color: rgb(42, 144, 168);
 }
 
 input[type="radio"]:not(:checked) + label  {
