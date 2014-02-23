@@ -5,8 +5,6 @@
 
 @import url("reset.css");
 
-@import url("responsive.gs.12col.css");
-
 @font-face 
 {
     font-family: "brandon-grotesqueblack";
@@ -236,7 +234,7 @@ input[type="checkbox"] + label {
 
 input[type="checkbox"] + label span {
     visibility: hidden;
-    line-height: 1.4em;
+    line-height: 2em;
     font-size: 2em;
     vertical-align: middle;
 }

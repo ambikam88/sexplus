@@ -17,6 +17,6 @@ This project is currently in BETA.
 ## Acknowledgements
 
 Sex+ would not be possible without: 
-* <http://responsive.gs/>
+* <http://unsemantic.com/>
 * <https://github.com/eligrey/FileSaver.js/>
 * <http://jquery.com/>
