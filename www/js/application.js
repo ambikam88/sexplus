@@ -137,7 +137,7 @@ function Application() {
 
     this.partnerAReadyNext = function() {
     
-        var root = $("#partnerAQuestions form ul");
+        var root = $("#partnerAQuestions form ul.questions");
         
         appendQuestions(root, "a");
         
@@ -168,7 +168,7 @@ function Application() {
     
     this.partnerBReadyNext = function() {
     
-        var root = $("#partnerBQuestions form ul");
+        var root = $("#partnerBQuestions form ul.questions");
         
         appendQuestions(root, "b");
         
@@ -328,7 +328,7 @@ function Application() {
         }
         else {
             
-            html += "<p>Sorry, no recommendations could be made. </p>";
+            html += "<p><em>Sorry, no recommendations could be made. </em></p>";
         }
         
         root.append(html);

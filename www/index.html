@@ -16,9 +16,11 @@
                     Some text about the error. 
                 </p>
             </section>
-            <p class="nav">
-                <input type="button" name="dismiss" value="Got it" onclick="app.hideAlert()" />
-            </p>
+            <ul class="choices">
+                <li>
+                    <input type="button" name="dismiss" value="Got it" onclick="app.hideAlert()" />
+                </li>
+            </ul>
         </div>
         
         <div class="container">
@@ -237,7 +239,7 @@
                         Partner A
                     </h1>
                     <form>
-                        <ul>
+                        <ul class="questions">
                             
                         </ul>
                         <ul class="choices">
@@ -263,7 +265,7 @@
                     <form>
                         <ul class="choices">
                             <li>
-                                <input type="button" class="accent-b" name="next" value="Next" onclick="app.partnerBNext()" />
+                                <input type="button" class="accent-b" name="next" value="Next" onclick="app.partnerBReadyNext()" />
                             </li>
                         </ul>
                     </form>
@@ -274,7 +276,7 @@
                         Partner B
                     </h1>
                     <form>
-                        <ul>
+                        <ul class="questions">
                             
                         </ul>
                         <ul class="choices">
@@ -356,10 +358,7 @@
                     <form>
                         <ul class="choices">
                             <li>
-                            <input type="button" name="previous" value="Previous" onclick="app.feedbackPrevious()" />
-                            </li>
-                            <li>
-                                <a class="button" href="https://github.com/sexplus/sexplus" target="_blank">Feedback</a>
+                                <input type="button" name="previous" value="Previous" onclick="app.feedbackPrevious()" />
                             </li>
                         </ul>
                     </form>
