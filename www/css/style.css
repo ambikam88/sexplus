@@ -5,34 +5,18 @@
 * accent-b dull: rgb(42, 144, 168) 
 */
 
-@import url("reset.css");
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,900,700,400italic);
 
-@font-face 
-{
-    font-family: "brandon-grotesqueblack";
-    font-style: normal;
-    font-weight: normal;
-    src: url("../fonts/brandon_blk-webfont.woff");
-}
-
-body 
-{
+body {
     background: rgb(240, 240, 240);
-    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
     padding-top: 64px;
     padding-bottom: 96px;
+    font-family: 'Roboto', sans-serif;
 }
 
-main
-{
-    
-}
-
-h1, h2, h3, h4, h5, h6
-{
-    font-family: 'brandon-grotesqueblack', Futura, "Trebuchet MS", Arial, sans-serif;
+h1, h2, h3, h4, h5, h6 {
     font-size: 40px;
-    font-weight: 400;
+    font-weight: 800;
     left: 0px;
     letter-spacing: 0.7px;
     line-height: 52px;
@@ -194,8 +178,7 @@ input[type=button], input[type=button] + label, input[type="radio"] + label, inp
     padding: 8px;
     border: none;
     border-radius: 4px;
-    font-family: 'brandon-grotesqueblack';
-    font-weight: 400;
+    font-weight: 700;
     font-size: 1em; 
     letter-spacing: 0.7px;
     text-align: center;
