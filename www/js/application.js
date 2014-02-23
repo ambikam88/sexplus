@@ -50,7 +50,7 @@ function Application() {
             var i = $(this);
             
             var activity = new Activity(
-                i.find("description").text(), 
+                i.find("description").html(), 
                 i.find("mm").text() == "true", 
                 i.find("mf").text() == "true", 
                 i.find("ff").text() == "true");
@@ -59,6 +59,8 @@ function Application() {
             
             $("#loading").hide();
             $("#introduction").show();
+
+            window.scrollTo(0, 0);
         };
                 
         var errorHandler = function() {
@@ -112,10 +114,9 @@ function Application() {
             this.hideAlert();
             
             $("#introduction").hide();
-            
-            window.scrollTo(0, 0);
-            
             $("#genders").show();
+
+            window.scrollTo(0, 0);
         }
         else {
             
@@ -129,10 +130,9 @@ function Application() {
         partnerBM = $("input[name='partnerBGender']:checked").val() === "Male";
         
         $("#genders").hide();
-        
-        window.scrollTo(0, 0);
-        
         $("#partnerAReady").show();
+
+        window.scrollTo(0, 0);
     }
 
     this.partnerAReadyNext = function() {
@@ -141,11 +141,10 @@ function Application() {
         
         appendQuestions(root, "a");
         
-        $("#partnerAReady").hide();
+        $("#partnerAReady").hide();        
+        $("#partnerAQuestions").show();
         
         window.scrollTo(0, 0);
-        
-        $("#partnerAQuestions").show();
     }
     
     this.partnerANext = function() {
@@ -155,10 +154,9 @@ function Application() {
             this.hideAlert();
             
             $("#partnerAQuestions").hide();
-            
-            window.scrollTo(0, 0);
-            
             $("#partnerBReady").show();
+
+            window.scrollTo(0, 0);
         }
         else {
             
@@ -173,10 +171,9 @@ function Application() {
         appendQuestions(root, "b");
         
         $("#partnerBReady").hide();
-        
-        window.scrollTo(0, 0);
-        
         $("#partnerBQuestions").show();
+
+        window.scrollTo(0, 0);
     }
     
     this.partnerBNext = function() {
@@ -186,10 +183,9 @@ function Application() {
             this.hideAlert();
             
             $("#partnerBQuestions").hide();
-            
-            window.scrollTo(0, 0);
-            
             $("#resultsReady").show();
+
+            window.scrollTo(0, 0);
         }
         else {
             
@@ -206,28 +202,25 @@ function Application() {
         fillResults($("#try"), 4);
         
         $("#resultsReady").hide();
-        
-        window.scrollTo(0, 0);
-        
         $("#results").show();
+
+        window.scrollTo(0, 0);
     }
     
     this.resultsNext = function() {
         
         $("#results").hide();
-        
-        window.scrollTo(0, 0);
-        
         $("#feedback").show();
+
+        window.scrollTo(0, 0);
     }
     
     this.feedbackPrevious = function() {
         
         $("#feedback").hide();
-        
-        window.scrollTo(0, 0);
-        
         $("#results").show();
+
+        window.scrollTo(0, 0);
     }
     
     this.save = function() {
