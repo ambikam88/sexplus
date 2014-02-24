@@ -51,7 +51,7 @@ h2.accent-b {
 }
 
 h3 { 
-    font-size: 1.8em; 
+    font-size: 2em; 
 }
 
 h3.accent-a {
@@ -67,8 +67,8 @@ h1, h2, h3, h4, h5, h6, p, ul {
 }
 
 p {
-    line-height: 1.4em;
-    font-size: 1.4em;
+    line-height: 1.8em;
+    font-size: 1.8em;
 }
 
 a {
