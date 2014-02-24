@@ -274,7 +274,7 @@ function Application() {
                     
                     var id = "preference_" + partner + "_" + i + "_" + j;
                     
-                    html += "<li><input type='radio' id='" + id + "' name='activity_" + i + "' value='" + j + "'checked='checked'/><label for='" + id + "' class='accent-" + partner + "'>" + pref + "</label></li>";
+                    html += "<li><input type='radio' id='" + id + "' name='activity_" + i + "' value='" + j + "'/><label for='" + id + "' class='accent-" + partner + "'>" + pref + "</label></li>";
                 }
                 
                 html += "</ul>";
