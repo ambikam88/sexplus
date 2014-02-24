@@ -50,7 +50,7 @@ function Application() {
                 var i = $(this);
                 
                 var activity = new Activity(
-                    i.find("description").html(), 
+                    i.find("description").text(), 
                     i.find("mm").text() == "true", 
                     i.find("mf").text() == "true", 
                     i.find("ff").text() == "true");
