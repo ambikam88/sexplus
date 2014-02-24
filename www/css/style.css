@@ -195,6 +195,11 @@ input.accent-b, input + label.accent-b, input:hover.accent-b, input:hover + labe
     background: rgb(72, 174, 198);
 }
 
+a.no-underline {
+    text-decoration: none;
+}
+
+
 input[type="checkbox"] {
     display: none;
 }

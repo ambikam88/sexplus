@@ -71,10 +71,10 @@ function Application() {
 
         this.updateDemoResult();
         
-        $.ajax({type: "GET", url: "xml/activities.xml", dataType: "xml", success: successHandler, error: errorHandler});
+        //$.ajax({type: "GET", url: "xml/activities.xml", dataType: "xml", success: successHandler, error: errorHandler});
         
         // Used for testing... 
-        //$.ajax({type: "GET", url: "xml/activities-test.xml", dataType: "xml", success: successHandler, error: errorHandler});
+        $.ajax({type: "GET", url: "xml/activities-test.xml", dataType: "xml", success: successHandler, error: errorHandler});
     }
     
     this.updateDemoResult = function() {
