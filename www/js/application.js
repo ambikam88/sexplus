@@ -229,13 +229,18 @@ function Application() {
         
         var resultsString = "# Results\r\n\n";
 
+        clean = function(text) {
+            
+            return text.replace(/(<([^>]+)>)/ig,"");
+        };
+
         if (results.length > 0) {
             
             for (var i = 0; i < results.length; i++) {
                 
                 var activity = activities[results[i]];
                 
-                resultsString += "* " + activity.getDescription() + "\r\n";
+                resultsString += "* " + clean(activity.getDescription()) + "\r\n";
             }
         }
         else {
@@ -269,7 +274,7 @@ function Application() {
                     
                     var id = "preference_" + partner + "_" + i + "_" + j;
                     
-                    html += "<li><input type='radio' id='" + id + "' name='activity_" + i + "' value='" + j + "'/><label for='" + id + "' class='accent-" + partner + "'>" + pref + "</label></li>";
+                    html += "<li><input type='radio' id='" + id + "' name='activity_" + i + "' value='" + j + "'checked='checked'/><label for='" + id + "' class='accent-" + partner + "'>" + pref + "</label></li>";
                 }
                 
                 html += "</ul>";
