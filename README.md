@@ -21,3 +21,4 @@ Sex+ would not be possible without:
 * <https://github.com/eligrey/FileSaver.js/>
 * <http://jquery.com/>
 * <http://mojoupgrade.com/> - Ideas for many questions
+* <http://reddit.com/r/sex/> - Ideas for many questions
